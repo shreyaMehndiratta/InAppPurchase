@@ -43,23 +43,16 @@ const App = () => {
   return (
     <SafeAreaView >
       <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{
           marginTop: 30,
           alignItems: 'center'
         }}
       >
-
         {availableSubscriptions?.map((item) => {
           return (
             <Text>{item?.title || '-'}</Text>
           )
         })}
-        <Text></Text>
-        {/* <TouchableOpacity onPress={() => { }}>
-            <Text style={{ color: 'white' }}>Buy Subscription</Text>
-          </TouchableOpacity> */}
-
       </ScrollView>
     </SafeAreaView>
   );
