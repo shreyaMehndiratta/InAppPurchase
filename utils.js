@@ -76,10 +76,13 @@ export const getInAppSubscriptions = (productIds) => {
 }
 
 export const buySubscription = async (product) => {
+  console.log("product", product)
   return new Promise(async (resolve, reject) => {
     try {
       const purchases = await RNIap.getPurchaseHistory()
+      console.log("purchases", purchases)
       const purchasedItem = purchases.find(purchase => purchase.productId === product.productId)
+      console.log("purchasedItem", purchasedItem)
       if (purchasedItem) {
         const _error = new Error('productPurchased')
         reject(_error);

@@ -17,6 +17,7 @@ import {
   View,
 } from 'react-native';
 import * as RNIap from 'react-native-iap';
+import { buySubscription } from './utils';
 
 const App = () => {
   const [availableSubscriptions, setAvailableSubscriptions] = useState([]);
@@ -40,19 +41,22 @@ const App = () => {
     })
   }, [])
 
+
   return (
     <SafeAreaView >
-      <ScrollView
-        contentContainerStyle={{
-          marginTop: 30,
-          alignItems: 'center'
-        }}
-      >
-        {availableSubscriptions?.map((item) => {
-          return (
-            <Text>{item?.title || '-'}</Text>
-          )
-        })}
+      <ScrollView contentContainerStyle={{ marginTop: 30, }} >
+        <Text style={{ alignSelf: 'center' }}>Subscriptions:</Text>
+        {availableSubscriptions?.map((item) =>
+          <View style={{ marginHorizontal: 24 }}>
+            <View style={styles.contentView}>
+              <Text>{item?.title || '-'}</Text>
+              <TouchableOpacity style={styles.buttonStyle} onPress={() => buySubscription(item)}>
+                <Text style={{ color: 'white' }}>Buy</Text>
+              </TouchableOpacity>
+            </View>
+            <Text >{item.localizedPrice}</Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -75,6 +79,20 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  contentView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginTop: 40
+  },
+  buttonStyle: {
+    height: 50,
+    width: 100,
+    backgroundColor: 'green',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8
+  }
 });
 
 export default App;
