@@ -1,4 +1,4 @@
-package com.inapppurchase;
+package com.ott.msky;
 
 import com.facebook.react.ReactActivity;
 

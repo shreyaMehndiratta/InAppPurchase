@@ -1,4 +1,4 @@
-package com.inapppurchase;
+package com.ott.msky;
 
 import android.app.Application;
 import android.content.Context;
