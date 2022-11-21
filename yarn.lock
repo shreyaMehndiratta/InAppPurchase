@@ -2445,7 +2445,7 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dooboolab-welcome@1.3.2:
+dooboolab-welcome@^1.3.0:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/dooboolab-welcome/-/dooboolab-welcome-1.3.2.tgz#4928595312f0429b4ea1b485ba8767bae6acdab7"
   integrity sha512-2NbMaIIURElxEf/UAoVUFlXrO+7n/FRhLCiQlk4fkbGRh9cJ3/f8VEMPveR9m4Ug2l2Zey+UCXjd6EcBqHJ5bw==
@@ -5316,12 +5316,12 @@ react-native-codegen@^0.0.8:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
-react-native-iap@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-8.2.1.tgz#a2732db8ab1d8bf3d1043971223e2cdd95a48c9b"
-  integrity sha512-dRNGJj3SvL3XkJyEy67a+7R8f4pEvaeraxahfpR0tbU1sK3CrkJ8PRL4A4vPy2OokKJhAjbBdfZTELGmTRb8aQ==
+react-native-iap@7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-7.0.5.tgz#4a77372203edd027a13b086aef4588fc2cbc94f3"
+  integrity sha512-27OSsCLyR4dVvQZP3QsjCI1CEdtT9b5jNmdW14jGSm2NlPubAIEkkmSl45GRRptD5u1PNAVx2lbfKw76/gW7ig==
   dependencies:
-    dooboolab-welcome "1.3.2"
+    dooboolab-welcome "^1.3.0"
 
 react-native@0.67.3:
   version "0.67.3"

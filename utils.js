@@ -76,35 +76,39 @@ export const getInAppSubscriptions = (productIds) => {
 }
 
 export const buySubscription = async (product) => {
-  console.log("product", product)
-  return new Promise(async (resolve, reject) => {
-    try {
-      const purchases = await RNIap.getPurchaseHistory()
-      console.log("purchases", purchases)
-      const purchasedItem = purchases.find(purchase => purchase.productId === product.productId)
-      console.log("purchasedItem", purchasedItem)
-      if (purchasedItem) {
-        const _error = new Error('productPurchased')
-        reject(_error);
-        return;
-      }
-      await RNIap.requestPurchase(product.productId, false)
-      RNIap.purchaseUpdatedListener((purchase) => {
-        const receipt = purchase.transactionReceipt;
-        if (receipt) {
-          RNIap.finishTransaction(purchase, false)
-          resolve(purchase)
-        }
-      });
+  await RNIap.presentCodeRedemptionSheetIOS();
+  // console.log("product", product)
+  // return new Promise(async (resolve, reject) => {
+  //   try {
+  //     // const purchases = await RNIap.getPurchaseHistory()
+  //     // console.log("purchases", purchases)
+  //     // const purchasedItem = purchases.find(purchase => purchase.productId === product.productId)
+  //     // console.log("purchasedItem", purchasedItem)
+  //     // if (purchasedItem) {
+  //     //   const _error = new Error('productPurchased')
+  //     //   reject(_error);
+  //     //   return;
+  //     // }
+  //     await RNIap.requestPurchase(product.productId, false)
+  //     RNIap.purchaseUpdatedListener((purchase) => {
+  //       console.log("purchaseUpdatedListener", purchase)
+  //       const receipt = purchase.transactionReceipt;
 
-      RNIap.purchaseErrorListener((error) => {
-        reject(error)
-      });
-    }
-    catch (error) {
-      reject(error);
-    }
-  })
+  //       console.log("purchaseUpdatedListener receipt", receipt)
+  //       if (receipt) {
+  //         RNIap.finishTransaction(purchase, false)
+  //         resolve(purchase)
+  //       }
+  //     });
+
+  //     RNIap.purchaseErrorListener((error) => {
+  //       reject(error)
+  //     });
+  //   }
+  //   catch (error) {
+  //     reject(error);
+  //   }
+  // })
 }
 
 // const validateReceipt = async (receipt) => {
